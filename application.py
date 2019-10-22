@@ -5,6 +5,7 @@ app = Flask(__name__)
 api = Api(app)
 
 a_language = api.model('Language', {'language': fields.String('The Language.')})
+a_language2 = api.model('Languagesss', {'languagesss': fields.String('The Languagessss.')})
 
 languages = []
 python = {'language': 'Python'}
@@ -13,6 +14,7 @@ languages.append(python)
 
 @api.route('/language')
 class Language(Resource):
+    @api.expect(a_language2)
     def get(self):
         return languages
 
