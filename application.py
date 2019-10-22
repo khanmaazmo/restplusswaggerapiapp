@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restplus import Api, Resource, fields
-from werkzeug.contrib.fixers import ProxyFix #added
+#from werkzeug.contrib.fixers import ProxyFix #added
 
 #option 2 not recommended
 #from werkzeug.contrib.fixers import ProxyFix
@@ -18,7 +18,7 @@ from werkzeug.contrib.fixers import ProxyFix #added
 #Api.specs_url = specs_url
 
 app = Flask(__name__)
-app.wsgi_app = ProxyFix(app.wsgi_app)  #added
+#app.wsgi_app = ProxyFix(app.wsgi_app)  #added
 api = Api(app) #, title='TodoMVC API', description='A simple TodoMVC API'
 #name_space = app.namespace('main', description='Main APIs')
 
