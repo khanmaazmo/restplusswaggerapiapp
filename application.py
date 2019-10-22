@@ -1,4 +1,5 @@
-from flask import Flask, url_for
+from flask import Flask
+from flask import url_for
 from flask_restplus import Api, Resource, fields
 #from werkzeug.contrib.fixers import ProxyFix #added
 
@@ -11,10 +12,11 @@ from flask_restplus import Api, Resource, fields
 #app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 
 #option 1
-@Property
+@property
 def specs_url(self):
-#"""Monkey patch for HTTPS"""
-return url_for(self.endpoint('specs'), _external=True, _scheme='https')
+   #"""Monkey patch for HTTPS"""
+   return url_for(self.endpoint('specs'), _external=True, _scheme='https')
+
 Api.specs_url = specs_url
 
 app = Flask(__name__)
